@@ -31,6 +31,18 @@ const errorMessages = {
     title: "Lỗi kết nối",
     message: "Không thể kết nối mạng. Vui lòng kiểm tra internet và thử lại.",
   },
+  "auth/popup-blocked": {
+    title: "Popup bị chặn",
+    message: "Trình duyệt đã chặn cửa sổ đăng nhập Google. Vui lòng cho phép popup và thử lại.",
+  },
+  "auth/operation-not-allowed": {
+    title: "Chưa kích hoạt đăng nhập Google",
+    message: "Phương thức đăng nhập Google chưa được bật trong Firebase Console.",
+  },
+  "auth/unauthorized-domain": {
+    title: "Domain không được phép",
+    message: "Domain này chưa được thêm vào danh sách cho phép trong Firebase Console.",
+  },
 };
 
 function Notification({ error, onClose }) {

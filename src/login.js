@@ -10,7 +10,6 @@ function Login({ onGoRegister, onError }) {
     e.preventDefault();
     try {
       await signInWithEmailAndPassword(auth, email, password);
-      alert("Đăng nhập thành công!");
     } catch (error) {
       onError(error);
     }
@@ -19,8 +18,13 @@ function Login({ onGoRegister, onError }) {
   const handleGoogleLogin = async () => {
     try {
       await signInWithPopup(auth, googleProvider);
-      alert("Đăng nhập Google thành công!");
     } catch (error) {
+      if (
+        error.code === "auth/popup-closed-by-user" ||
+        error.code === "auth/cancelled-popup-request"
+      ) {
+        return;
+      }
       onError(error);
     }
   };
